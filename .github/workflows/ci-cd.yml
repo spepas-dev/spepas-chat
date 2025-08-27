@@ -52,10 +52,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      
-      - name: Generate Prisma Db
-        run: npx prisma db push
-
       # Uncomment these when needed
       # - name: Lint Check
       #   run: npm run lint:check
