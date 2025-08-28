@@ -2,13 +2,15 @@ import { config } from '@chat/config';
 import { Client } from '@elastic/elasticsearch';
 import { ClusterHealthResponse } from '@elastic/elasticsearch/lib/api/types';
 // import { winstonLogger } from '@josephboadi/joy-jobber-shared';
+import { winstonLogger } from '@chat/interfaces';
 import { Logger } from 'winston';
-import { winstonLogger } from './interfaces';
 
 const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'chatElasticSearchServer', 'debug');
 
 const elasticSearchClient = new Client({
   node: `${config.ELASTIC_SEARCH_URL}`
+  // auth: { username: 'elastic', password: 'admin1234' },
+  // tls: { rejectUnauthorized: false }
 });
 
 const checkConnection = async (): Promise<void> => {

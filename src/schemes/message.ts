@@ -25,21 +25,23 @@ const rbmessageSchema: ObjectSchema = Joi.object().keys({
     'string.empty': 'Sender id is required',
     'any.required': 'Sender id is required'
   }),
-  senderPicture: Joi.string().required().messages({
-    'string.base': 'Sender picture is required',
-    'string.empty': 'Sender picture is required',
-    'any.required': 'Sender picture is required'
-  }),
+  senderPicture: Joi.string().optional().allow(null, ''),
+  // senderPicture: Joi.string().required().messages({
+  //   'string.base': 'Sender picture is required',
+  //   'string.empty': 'Sender picture is required',
+  //   'any.required': 'Sender picture is required'
+  // }),
   receiverId: Joi.string().required().messages({
     'string.base': 'Receiver id is required',
     'string.empty': 'Receiver id is required',
     'any.required': 'Receiver id is required'
   }),
-  receiverPicture: Joi.string().required().messages({
-    'string.base': 'Receiver picture is required',
-    'string.empty': 'Receiver picture is required',
-    'any.required': 'Receiver picture is required'
-  }),
+  receiverPicture: Joi.string().optional().allow(null, ''),
+  // receiverPicture: Joi.string().required().messages({
+  //   'string.base': 'Receiver picture is required',
+  //   'string.empty': 'Receiver picture is required',
+  //   'any.required': 'Receiver picture is required'
+  // }),
   isRead: Joi.boolean().optional(),
   createdAt: Joi.string().optional()
 });
@@ -69,21 +71,23 @@ const rsmessageSchema: ObjectSchema = Joi.object().keys({
     'string.empty': 'Sender id is required',
     'any.required': 'Sender id is required'
   }),
-  senderPicture: Joi.string().required().messages({
-    'string.base': 'Sender picture is required',
-    'string.empty': 'Sender picture is required',
-    'any.required': 'Sender picture is required'
-  }),
+  senderPicture: Joi.string().optional().allow(null, ''),
+  // senderPicture: Joi.string().required().messages({
+  //   'string.base': 'Sender picture is required',
+  //   'string.empty': 'Sender picture is required',
+  //   'any.required': 'Sender picture is required'
+  // }),
   receiverId: Joi.string().required().messages({
     'string.base': 'Receiver id is required',
     'string.empty': 'Receiver id is required',
     'any.required': 'Receiver id is required'
   }),
-  receiverPicture: Joi.string().required().messages({
-    'string.base': 'Receiver picture is required',
-    'string.empty': 'Receiver picture is required',
-    'any.required': 'Receiver picture is required'
-  }),
+  receiverPicture: Joi.string().optional().allow(null, ''),
+  // receiverPicture: Joi.string().required().messages({
+  //   'string.base': 'Receiver picture is required',
+  //   'string.empty': 'Receiver picture is required',
+  //   'any.required': 'Receiver picture is required'
+  // }),
   isRead: Joi.boolean().optional(),
   createdAt: Joi.string().optional()
 });
@@ -112,21 +116,23 @@ const ucmessageSchema: ObjectSchema = Joi.object().keys({
     'string.empty': 'Sender id is required',
     'any.required': 'Sender id is required'
   }),
-  senderPicture: Joi.string().required().messages({
-    'string.base': 'Sender picture is required',
-    'string.empty': 'Sender picture is required',
-    'any.required': 'Sender picture is required'
-  }),
+  senderPicture: Joi.string().optional().allow(null, ''),
+  // senderPicture: Joi.string().required().messages({
+  //   'string.base': 'Sender picture is required',
+  //   'string.empty': 'Sender picture is required',
+  //   'any.required': 'Sender picture is required'
+  // }),
   receiverId: Joi.string().required().messages({
     'string.base': 'Receiver id is required',
     'string.empty': 'Receiver id is required',
     'any.required': 'Receiver id is required'
   }),
-  receiverPicture: Joi.string().required().messages({
-    'string.base': 'Receiver picture is required',
-    'string.empty': 'Receiver picture is required',
-    'any.required': 'Receiver picture is required'
-  }),
+  receiverPicture: Joi.string().optional().allow(null, ''),
+  // receiverPicture: Joi.string().required().messages({
+  //   'string.base': 'Receiver picture is required',
+  //   'string.empty': 'Receiver picture is required',
+  //   'any.required': 'Receiver picture is required'
+  // }),
   isRead: Joi.boolean().optional(),
   createdAt: Joi.string().optional()
 });

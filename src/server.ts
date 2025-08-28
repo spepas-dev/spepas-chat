@@ -12,10 +12,11 @@ import { Application, NextFunction, Request, Response, json, urlencoded } from '
 import 'express-async-errors';
 import helmet from 'helmet';
 import hpp from 'hpp';
-import { verify } from 'jsonwebtoken';
+// import { verify } from 'jsonwebtoken';
 import { Server } from 'socket.io';
 import { Logger } from 'winston';
-import { CustomError, IAuthPayload, IErrorResponse, winstonLogger } from './interfaces';
+
+import { CustomError, IErrorResponse, winstonLogger } from './interfaces';
 
 const SERVER_PORT = 4005;
 const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'chatServer', 'debug');
@@ -43,14 +44,14 @@ const securityMiddleware = (app: Application): void => {
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
     })
   );
-  app.use((req: Request, _res: Response, next: NextFunction) => {
-    if (req.headers.authorization) {
-      const token = req.headers.authorization.split(' ')[1];
-      const payload: IAuthPayload = verify(token, config.JWT_TOKEN!) as IAuthPayload;
-      req.currentUser = payload;
-    }
-    next();
-  });
+  // app.use((req: Request, _res: Response, next: NextFunction) => {
+  //   if (req.headers.authorization) {
+  //     const token = req.headers.authorization.split(' ')[1];
+  //     const payload: IAuthPayload = verify(token, config.JWT_TOKEN!) as IAuthPayload;
+  //     req.currentUser = payload;
+  //   }
+  //   next();
+  // });
 };
 
 const standardMiddleware = (app: Application): void => {

@@ -3,19 +3,40 @@ import dotenv from 'dotenv';
 
 dotenv.config({});
 
+// if (process.env.ENABLE_APM === '1') {
+//   // eslint-disable-next-line @typescript-eslint/no-require-imports
+//   require('elastic-apm-node').start({
+//     serviceName: 'spepas-chat',
+//     serverUrl: process.env.ELASTIC_APM_SERVER_URL,
+//     secretToken: process.env.ELASTIC_APM_SECRET_TOKEN,
+//     environment: process.env.NODE_ENV,
+//     active: true,
+//     captureBody: 'all',
+//     errorOnAbortedRequests: true,
+//     captureErrorLogStackTraces: 'always'
+//   });
+// }
 if (process.env.ENABLE_APM === '1') {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('elastic-apm-node').start({
-    serviceName: 'jobber-chat',
+    serviceName: 'spepas-chat',
     serverUrl: process.env.ELASTIC_APM_SERVER_URL,
     secretToken: process.env.ELASTIC_APM_SECRET_TOKEN,
     environment: process.env.NODE_ENV,
     active: true,
     captureBody: 'all',
+    capture_headers: true,
+    // optional: custom context
+    context: {
+      request: {
+        headers: true
+      }
+    },
     errorOnAbortedRequests: true,
     captureErrorLogStackTraces: 'always'
   });
 }
+
 class Config {
   public DATABASE_URL: string | undefined;
   public NODE_ENV: string | undefined;
