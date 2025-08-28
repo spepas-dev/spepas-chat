@@ -14,7 +14,7 @@ const createRSConversation = async (conversationId: string, sender: string, rece
 const addRSMessage = async (data: IRSMessageDocument): Promise<IRSMessageDocument> => {
   const message: IRSMessageDocument = (await RSMessageModel.create(data)) as IRSMessageDocument;
 
-  socketIOChatObject.emit('message received', message);
+  socketIOChatObject.emit('rider seller message received', message);
   return message;
 };
 
@@ -46,7 +46,7 @@ const getRSUserConversationList = async (userId: string): Promise<IRSMessageDocu
         _id: '$result._id',
         conversationId: '$result.conversationId',
         riderId: '$result.riderId',
-        buyerId: '$result.buyerId',
+        sellerId: '$result.sellerId',
         receiverId: '$result.receiverId',
         receiverPicture: '$result.receiverPicture',
         senderId: '$result.senderId',
@@ -91,7 +91,7 @@ const markRSMessageAsRead = async (messageId: string): Promise<IRSMessageDocumen
     },
     { new: true }
   )) as IRSMessageDocument;
-  socketIOChatObject.emit('message updated', message);
+  socketIOChatObject.emit('rider seller message updated', message);
   return message;
 };
 
@@ -105,7 +105,7 @@ const markManyRSMessagesAsRead = async (receiver: string, sender: string, messag
     }
   )) as IRSMessageDocument;
   const message: IRSMessageDocument = (await RSMessageModel.findOne({ _id: messageId }).exec()) as IRSMessageDocument;
-  socketIOChatObject.emit('message updated', message);
+  socketIOChatObject.emit('rider seller message updated', message);
   return message;
 };
 

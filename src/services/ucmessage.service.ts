@@ -14,7 +14,7 @@ const createUCConversation = async (conversationId: string, sender: string, rece
 const addUCMessage = async (data: IUCMessageDocument): Promise<IUCMessageDocument> => {
   const message: IUCMessageDocument = (await UCMessageModel.create(data)) as IUCMessageDocument;
 
-  socketIOChatObject.emit('rider buyer message received', message);
+  socketIOChatObject.emit('user customer service message received', message);
   return message;
 };
 
@@ -45,15 +45,14 @@ const getUCUserConversationList = async (userId: string): Promise<IUCMessageDocu
       $project: {
         _id: '$result._id',
         conversationId: '$result.conversationId',
-        riderId: '$result.riderId',
-        buyerId: '$result.buyerId',
+        customerServiceId: '$result.customerServiceId',
+        userId: '$result.buyerId',
         receiverId: '$result.receiverId',
         receiverPicture: '$result.receiverPicture',
         senderId: '$result.senderId',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
         // file: '$result.file',
-        orderId: '$result.orderId',
         isRead: '$result.isRead',
         createdAt: '$result.createdAt'
       }
@@ -91,7 +90,7 @@ const markUCMessageAsRead = async (messageId: string): Promise<IUCMessageDocumen
     },
     { new: true }
   )) as IUCMessageDocument;
-  socketIOChatObject.emit('rider buyer message updated', message);
+  socketIOChatObject.emit('user customer service message updated', message);
   return message;
 };
 
@@ -105,7 +104,7 @@ const markManyUCMessagesAsRead = async (receiver: string, sender: string, messag
     }
   )) as IUCMessageDocument;
   const message: IUCMessageDocument = (await UCMessageModel.findOne({ _id: messageId }).exec()) as IUCMessageDocument;
-  socketIOChatObject.emit('rider buyer message updated', message);
+  socketIOChatObject.emit('user customer service message updated', message);
   return message;
 };
 
