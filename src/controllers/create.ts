@@ -49,7 +49,9 @@ const rbmessage = async (req: Request, res: Response): Promise<void> => {
     await createRBConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
   }
   await addRBMessage(messageData);
-  res.status(StatusCodes.OK).json({ message: 'Rider Buyer Message added', conversationId: req.body.conversationId, messageData });
+  res
+    .status(StatusCodes.OK)
+    .json({ status: 1, message: 'Rider Buyer Message added', conversationId: req.body.conversationId, data: messageData });
 };
 
 const rsmessage = async (req: Request, res: Response): Promise<void> => {
@@ -88,7 +90,9 @@ const rsmessage = async (req: Request, res: Response): Promise<void> => {
     await createRSConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
   }
   await addRSMessage(messageData);
-  res.status(StatusCodes.OK).json({ message: 'Rider Seller Message added', conversationId: req.body.conversationId, messageData });
+  res
+    .status(StatusCodes.OK)
+    .json({ status: 1, message: 'Rider Seller Message added', conversationId: req.body.conversationId, data: messageData });
 };
 
 const ucmessage = async (req: Request, res: Response): Promise<void> => {
@@ -126,7 +130,9 @@ const ucmessage = async (req: Request, res: Response): Promise<void> => {
     await createUCConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
   }
   await addUCMessage(messageData);
-  res.status(StatusCodes.OK).json({ message: 'User Customer Service Message added', conversationId: req.body.conversationId, messageData });
+  res
+    .status(StatusCodes.OK)
+    .json({ status: 1, message: 'User Customer Service Message added', conversationId: req.body.conversationId, data: messageData });
 };
 
 export { rbmessage, rsmessage, ucmessage };

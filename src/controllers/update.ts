@@ -10,37 +10,37 @@ import { StatusCodes } from 'http-status-codes';
 const markMultipleRBMessages = async (req: Request, res: Response): Promise<void> => {
   const { messageId, senderId, receiverId } = req.body;
   await markManyRBMessagesAsRead(receiverId, senderId, messageId);
-  res.status(StatusCodes.OK).json({ message: 'Rider buyer messages marked as read' });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'Rider buyer messages marked as read' });
 };
 
 const markSingleRBMessage = async (req: Request, res: Response): Promise<void> => {
   const { messageId } = req.body;
   const message: IRBMessageDocument = await markRBMessageAsRead(messageId);
-  res.status(StatusCodes.OK).json({ message: 'Rider buyer Message marked as read', singleMessage: message });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'Rider buyer Message marked as read', data: message });
 };
 
 const markMultipleRSMessages = async (req: Request, res: Response): Promise<void> => {
   const { messageId, senderId, receiverId } = req.body;
   await markManyRSMessagesAsRead(receiverId, senderId, messageId);
-  res.status(StatusCodes.OK).json({ message: 'Rider seller messages marked as read' });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'Rider seller messages marked as read' });
 };
 
 const markSingleRSMessage = async (req: Request, res: Response): Promise<void> => {
   const { messageId } = req.body;
   const message: IRSMessageDocument = await markRSMessageAsRead(messageId);
-  res.status(StatusCodes.OK).json({ message: 'Rider seller Message marked as read', singleMessage: message });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'Rider seller Message marked as read', data: message });
 };
 
 const markMultipleUCMessages = async (req: Request, res: Response): Promise<void> => {
   const { messageId, senderId, receiverId } = req.body;
   await markManyUCMessagesAsRead(receiverId, senderId, messageId);
-  res.status(StatusCodes.OK).json({ message: 'User customer service messages marked as read' });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'User customer service messages marked as read' });
 };
 
 const markSingleUCMessage = async (req: Request, res: Response): Promise<void> => {
   const { messageId } = req.body;
   const message: IUCMessageDocument = await markUCMessageAsRead(messageId);
-  res.status(StatusCodes.OK).json({ message: 'User customer service Message marked as read', singleMessage: message });
+  res.status(StatusCodes.OK).json({ status: 1, message: 'User customer service Message marked as read', data: message });
 };
 
 export {
