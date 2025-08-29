@@ -7,7 +7,9 @@ export interface IConversationDocument extends Document {
   _id: mongoose.Types.ObjectId | string;
   conversationId: string;
   senderId: string;
+  senderName: string;
   receiverId: string;
+  receiverName: string;
 }
 
 export interface IRBMessageDocument {
@@ -21,10 +23,14 @@ export interface IRBMessageDocument {
   // fileName?: string;
   orderId?: string;
   riderId?: string;
+  riderName?: string;
   buyerId?: string;
+  buyerName?: string;
   senderId?: string;
+  senderName?: string;
   senderPicture?: string;
   receiverId?: string;
+  receiverName?: string;
   receiverPicture?: string;
   isRead?: boolean;
   hasConversationId?: boolean;
@@ -42,10 +48,14 @@ export interface IRSMessageDocument {
   // fileName?: string;
   orderId?: string;
   riderId?: string;
+  riderName?: string;
   sellerId?: string;
+  sellerName?: string;
   senderId?: string;
+  senderName?: string;
   senderPicture?: string;
   receiverId?: string;
+  receiverName?: string;
   receiverPicture?: string;
   isRead?: boolean;
   hasConversationId?: boolean;
@@ -62,10 +72,14 @@ export interface IUCMessageDocument {
   // fileSize?: string;
   // fileName?: string;
   userId?: string;
+  userName?: string;
   customerServiceId?: string;
+  customerServiceName?: string;
   senderId?: string;
+  senderName?: string;
   senderPicture?: string;
   receiverId?: string;
+  receiverName?: string;
   receiverPicture?: string;
   isRead?: boolean;
   hasConversationId?: boolean;
@@ -95,6 +109,7 @@ export interface IUCChatBoxProps {
 export interface IChatRiderProps {
   _id: string;
   userId: string;
+  name: string;
   profilePicture: string;
   responseTime: number;
 }
@@ -102,18 +117,21 @@ export interface IChatRiderProps {
 export interface IChatBuyerProps {
   _id: string;
   userId: string;
+  name: string;
   profilePicture: string;
 }
 
 export interface IChatSellerProps {
   _id: string;
   userId: string;
+  name: string;
   profilePicture: string;
 }
 
 export interface IChatCustomerServiceProps {
   _id: string;
   userId: string;
+  name: string;
   profilePicture: string;
   responseTime: number;
 }
@@ -121,6 +139,7 @@ export interface IChatCustomerServiceProps {
 export interface IChatUserProps {
   _id: string;
   userId: string;
+  name: string;
   profilePicture: string;
 }
 

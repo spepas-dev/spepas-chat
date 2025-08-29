@@ -41,10 +41,14 @@ export const messageDocument: IRBMessageDocument = {
   // fileName: 'tester',
   orderId: '60263f14648fed5246e322q4',
   riderId: '60263f14648fed5246e322q4',
+  riderName: 'Manny',
   buyerId: '50263f14648fed4346e322d4',
-  senderId: 'Manny',
+  buyerName: 'Sunny',
+  senderId: '50263f14648fed4346e322d4',
+  senderName: 'Manny',
   senderPicture: '',
-  receiverId: 'Sunny',
+  receiverId: '60263f14648fed5246e322q4',
+  receiverName: 'Sunny',
   receiverPicture: '',
   isRead: false
 };

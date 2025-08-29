@@ -38,15 +38,25 @@ const rbmessage = async (req: Request, res: Response): Promise<void> => {
     // fileName: req.body.fileName,
     orderId: req.body.orderId,
     buyerId: req.body.buyerId,
+    buyerName: req.body.buyerName,
     riderId: req.body.riderId,
+    riderName: req.body.riderName,
     senderId: req.body.senderId,
+    senderName: req.body.senderName,
     senderPicture: req.body.senderPicture,
     receiverId: req.body.receiverId,
+    receiverName: req.body.receiverName,
     receiverPicture: req.body.receiverPicture,
     isRead: req.body.isRead
   };
   if (!req.body.hasConversationId) {
-    await createRBConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
+    await createRBConversation(
+      `${messageData.conversationId}`,
+      `${messageData.senderId}`,
+      `${messageData.receiverId}`,
+      `${messageData.senderName}`,
+      `${messageData.receiverName}`
+    );
   }
   await addRBMessage(messageData);
   res
@@ -79,15 +89,25 @@ const rsmessage = async (req: Request, res: Response): Promise<void> => {
     // fileName: req.body.fileName,
     orderId: req.body.orderId,
     sellerId: req.body.sellerId,
+    sellerName: req.body.sellerName,
     riderId: req.body.riderId,
+    riderName: req.body.riderName,
     senderId: req.body.senderId,
+    senderName: req.body.senderName,
     senderPicture: req.body.senderPicture,
     receiverId: req.body.receiverId,
+    receiverName: req.body.receiverName,
     receiverPicture: req.body.receiverPicture,
     isRead: req.body.isRead
   };
   if (!req.body.hasConversationId) {
-    await createRSConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
+    await createRSConversation(
+      `${messageData.conversationId}`,
+      `${messageData.senderId}`,
+      `${messageData.receiverId}`,
+      `${messageData.senderName}`,
+      `${messageData.receiverName}`
+    );
   }
   await addRSMessage(messageData);
   res
@@ -119,15 +139,25 @@ const ucmessage = async (req: Request, res: Response): Promise<void> => {
     // fileSize: req.body.fileSize,
     // fileName: req.body.fileName,
     userId: req.body.sellerId,
-    customerServiceId: req.body.riderId,
+    userName: req.body.sellerName,
+    customerServiceId: req.body.customerServiceId,
+    customerServiceName: req.body.customerServiceName,
     senderId: req.body.senderId,
+    senderName: req.body.senderName,
     senderPicture: req.body.senderPicture,
     receiverId: req.body.receiverId,
+    receiverName: req.body.receiverName,
     receiverPicture: req.body.receiverPicture,
     isRead: req.body.isRead
   };
   if (!req.body.hasConversationId) {
-    await createUCConversation(`${messageData.conversationId}`, `${messageData.senderId}`, `${messageData.receiverId}`);
+    await createUCConversation(
+      `${messageData.conversationId}`,
+      `${messageData.senderId}`,
+      `${messageData.receiverId}`,
+      `${messageData.senderName}`,
+      `${messageData.receiverName}`
+    );
   }
   await addUCMessage(messageData);
   res

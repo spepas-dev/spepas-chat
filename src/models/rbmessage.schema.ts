@@ -5,7 +5,9 @@ const messageSchema: Schema = new Schema(
   {
     conversationId: { type: String, required: true, index: true },
     senderId: { type: String, required: true, index: true },
+    senderName: { type: String, required: true, index: true },
     receiverId: { type: String, required: true, index: true },
+    receiverName: { type: String, required: true, index: true },
     // senderPicture: { type: String, required: true },
     senderPicture: { type: String, default: '' },
     // receiverPicture: { type: String, required: true },
@@ -17,7 +19,9 @@ const messageSchema: Schema = new Schema(
     // fileName: { type: String, default: '' },
     orderId: { type: String, default: '' },
     buyerId: { type: String, required: true },
+    buyerName: { type: String, required: true },
     riderId: { type: String, required: true },
+    riderName: { type: String, required: true },
     isRead: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now }
   },

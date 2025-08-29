@@ -3,11 +3,19 @@ import { ConversationModel } from '@chat/models/conversation.schema';
 import { RSMessageModel } from '@chat/models/rsmessage.schema';
 import { socketIOChatObject } from '@chat/server';
 
-const createRSConversation = async (conversationId: string, sender: string, receiver: string): Promise<void> => {
+const createRSConversation = async (
+  conversationId: string,
+  senderId: string,
+  receiverId: string,
+  senderName: string,
+  receiverName: string
+): Promise<void> => {
   await ConversationModel.create({
     conversationId,
-    senderId: sender,
-    receiverId: receiver
+    senderId,
+    senderName,
+    receiverId,
+    receiverName
   });
 };
 
@@ -46,10 +54,14 @@ const getRSUserConversationList = async (userId: string): Promise<IRSMessageDocu
         _id: '$result._id',
         conversationId: '$result.conversationId',
         riderId: '$result.riderId',
+        riderName: '$result.riderName',
         sellerId: '$result.sellerId',
+        sellerName: '$result.sellerName',
         receiverId: '$result.receiverId',
+        receiverName: '$result.receiverName',
         receiverPicture: '$result.receiverPicture',
         senderId: '$result.senderId',
+        senderName: '$result.senderName',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
         // file: '$result.file',

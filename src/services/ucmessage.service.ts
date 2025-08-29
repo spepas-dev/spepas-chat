@@ -3,11 +3,19 @@ import { ConversationModel } from '@chat/models/conversation.schema';
 import { UCMessageModel } from '@chat/models/ucmessage.schema';
 import { socketIOChatObject } from '@chat/server';
 
-const createUCConversation = async (conversationId: string, sender: string, receiver: string): Promise<void> => {
+const createUCConversation = async (
+  conversationId: string,
+  senderId: string,
+  receiverId: string,
+  senderName: string,
+  receiverName: string
+): Promise<void> => {
   await ConversationModel.create({
     conversationId,
-    senderId: sender,
-    receiverId: receiver
+    senderId,
+    senderName,
+    receiverId,
+    receiverName
   });
 };
 
@@ -46,10 +54,14 @@ const getUCUserConversationList = async (userId: string): Promise<IUCMessageDocu
         _id: '$result._id',
         conversationId: '$result.conversationId',
         customerServiceId: '$result.customerServiceId',
+        customerServiceName: '$result.customerServiceName',
         userId: '$result.buyerId',
+        userName: '$result.buyerName',
         receiverId: '$result.receiverId',
+        receiverName: '$result.receiverName',
         receiverPicture: '$result.receiverPicture',
         senderId: '$result.senderId',
+        senderName: '$result.senderName',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
         // file: '$result.file',
