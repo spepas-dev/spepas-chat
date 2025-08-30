@@ -64,7 +64,7 @@ const getRSUserConversationList = async (userId: string): Promise<IRSMessageDocu
         senderName: '$result.senderName',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
-        // file: '$result.file',
+        file: '$result.file',
         orderId: '$result.orderId',
         isRead: '$result.isRead',
         createdAt: '$result.createdAt'

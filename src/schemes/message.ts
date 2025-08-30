@@ -5,10 +5,10 @@ const rbmessageSchema: ObjectSchema = Joi.object().keys({
   _id: Joi.string().optional(),
   body: Joi.string().optional().allow(null, ''),
   hasConversationId: Joi.boolean().optional(), // this is only for checking if conversation id exist
-  // file: Joi.string().optional().allow(null, ''),
-  // fileType: Joi.string().optional().allow(null, ''),
-  // fileName: Joi.string().optional().allow(null, ''),
-  // fileSize: Joi.string().optional().allow(null, ''),
+  file: Joi.string().optional().allow(null, ''),
+  fileType: Joi.string().optional().allow(null, ''),
+  fileName: Joi.string().optional().allow(null, ''),
+  fileSize: Joi.string().optional().allow(null, ''),
   orderId: Joi.string().optional().allow(null, ''),
   riderId: Joi.string().required().messages({
     'string.base': 'Rider id is required',
@@ -71,10 +71,10 @@ const rsmessageSchema: ObjectSchema = Joi.object().keys({
   _id: Joi.string().optional(),
   body: Joi.string().optional().allow(null, ''),
   hasConversationId: Joi.boolean().optional(), // this is only for checking if conversation id exist
-  // file: Joi.string().optional().allow(null, ''),
-  // fileType: Joi.string().optional().allow(null, ''),
-  // fileName: Joi.string().optional().allow(null, ''),
-  // fileSize: Joi.string().optional().allow(null, ''),
+  file: Joi.string().optional().allow(null, ''),
+  fileType: Joi.string().optional().allow(null, ''),
+  fileName: Joi.string().optional().allow(null, ''),
+  fileSize: Joi.string().optional().allow(null, ''),
   orderId: Joi.string().optional().allow(null, ''),
   riderId: Joi.string().required().messages({
     'string.base': 'Rider id is required',
@@ -137,10 +137,10 @@ const ucmessageSchema: ObjectSchema = Joi.object().keys({
   _id: Joi.string().optional(),
   body: Joi.string().optional().allow(null, ''),
   hasConversationId: Joi.boolean().optional(), // this is only for checking if conversation id exist
-  // file: Joi.string().optional().allow(null, ''),
-  // fileType: Joi.string().optional().allow(null, ''),
-  // fileName: Joi.string().optional().allow(null, ''),
-  // fileSize: Joi.string().optional().allow(null, ''),
+  file: Joi.string().optional().allow(null, ''),
+  fileType: Joi.string().optional().allow(null, ''),
+  fileName: Joi.string().optional().allow(null, ''),
+  fileSize: Joi.string().optional().allow(null, ''),
   customerServiceId: Joi.string().required().messages({
     'string.base': 'Customer Service id is required',
     'string.empty': 'Customer Service id is required',

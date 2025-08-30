@@ -64,7 +64,7 @@ const getRBUserConversationList = async (userId: string): Promise<IRBMessageDocu
         senderName: '$result.senderName',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
-        // file: '$result.file',
+        file: '$result.file',
         orderId: '$result.orderId',
         isRead: '$result.isRead',
         createdAt: '$result.createdAt'

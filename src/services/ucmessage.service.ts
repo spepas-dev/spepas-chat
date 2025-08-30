@@ -64,7 +64,7 @@ const getUCUserConversationList = async (userId: string): Promise<IUCMessageDocu
         senderName: '$result.senderName',
         senderPicture: '$result.senderPicture',
         body: '$result.body',
-        // file: '$result.file',
+        file: '$result.file',
         isRead: '$result.isRead',
         createdAt: '$result.createdAt'
       }

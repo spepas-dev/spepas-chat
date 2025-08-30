@@ -1,8 +1,4 @@
 import mongoose, { ObjectId } from 'mongoose';
-// import { IOffer } from './order.interface';
-// import { ISellerGig } from './gig.interface';
-// import { ISellerDocument } from './seller.interface';
-
 export interface IConversationDocument extends Document {
   _id: mongoose.Types.ObjectId | string;
   conversationId: string;
@@ -17,10 +13,10 @@ export interface IRBMessageDocument {
   conversationId?: string;
   body?: string;
   url?: string;
-  // file?: string;
-  // fileType?: string;
-  // fileSize?: string;
-  // fileName?: string;
+  file?: string;
+  fileType?: string;
+  fileSize?: string;
+  fileName?: string;
   orderId?: string;
   riderId?: string;
   riderName?: string;
@@ -42,10 +38,10 @@ export interface IRSMessageDocument {
   conversationId?: string;
   body?: string;
   url?: string;
-  // file?: string;
-  // fileType?: string;
-  // fileSize?: string;
-  // fileName?: string;
+  file?: string;
+  fileType?: string;
+  fileSize?: string;
+  fileName?: string;
   orderId?: string;
   riderId?: string;
   riderName?: string;
@@ -67,10 +63,10 @@ export interface IUCMessageDocument {
   conversationId?: string;
   body?: string;
   url?: string;
-  // file?: string;
-  // fileType?: string;
-  // fileSize?: string;
-  // fileName?: string;
+  file?: string;
+  fileType?: string;
+  fileSize?: string;
+  fileName?: string;
   userId?: string;
   userName?: string;
   customerServiceId?: string;
